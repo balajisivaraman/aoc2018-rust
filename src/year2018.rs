@@ -19,3 +19,24 @@ pub fn day01b(input: Vec<String>) -> i32 {
     }
     0
 }
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    fn get_input(input: Vec<&str>) -> Vec<String> {
+        input.into_iter().map(|s| s.to_string()).collect()
+    }
+
+    #[test]
+    fn test_day01a() {
+        let input = vec!("+1", "+1", "+1");
+        assert_eq!(day01a(get_input(input)), 3);
+    }
+
+    #[test]
+    fn test_day01b() {
+        let input = vec!("+3", "+3", "+4", "-2", "-4");
+        assert_eq!(day01b(get_input(input)), 10);
+    }
+
+}
