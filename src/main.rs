@@ -22,7 +22,11 @@ fn main() -> io::Result<()> {
 fn run(problem: &str) -> io::Result<()> {
     match problem {
         "day01a" => {
-          println!("{}", day01a(read_input("input/2018/day01a")?));
+          println!("{}", day01a(read_input("input/2018/day01")?));
+          Ok(())
+        },
+        "day01b" => {
+          println!("{:?}", day01b(read_input("input/2018/day01")?));
           Ok(())
         },
         p => {
