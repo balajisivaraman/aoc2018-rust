@@ -29,6 +29,10 @@ fn run(problem: &str) -> io::Result<()> {
           println!("{:?}", day01b(read_input("input/2018/day01")?));
           Ok(())
         },
+        "day02a" => {
+          println!("{:?}", day02a(read_input("input/2018/day02")?));
+          Ok(())
+        },
         p => {
             println!("Problem {} not found", p);
             Ok(())

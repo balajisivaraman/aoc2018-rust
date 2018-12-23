@@ -1,4 +1,5 @@
 use std::collections::HashSet;
+use std::collections::HashMap;
 
 pub fn day01a(input: Vec<String>) -> i32 {
     input.iter()
@@ -19,6 +20,20 @@ pub fn day01b(input: Vec<String>) -> i32 {
     }
     0
 }
+
+pub fn day02a(input: Vec<String>) -> u32 {
+    let p: Vec<HashMap<char, u32>> = input.into_iter().map(|s| frequencies(s)).collect();
+    0
+}
+
+fn frequencies(input: String) -> HashMap<char, u32> {
+    let mut frequencies = HashMap::new();
+    for c in input.chars() {
+        *frequencies.entry(c).or_insert(0) += 1;
+    }
+    frequencies
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -39,4 +54,9 @@ mod tests {
         assert_eq!(day01b(get_input(input)), 10);
     }
 
+    #[test]
+    fn test_day02a() {
+        let input = vec!("abcdef", "bababc", "abbcde", "abcccd", "aabcdd", "abcdee", "ababab");
+        assert_eq!(day02a(get_input(input)), 12);
+    }
 }
